@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+	<hibernate-mapping>
+	
+		<class name="com.zhiyou100.model.Message" >
+			
+			<id name="message_id" column="message_id">
+				<generator class="native"/>
+			</id>
+			<property name="subject" column="subject"></property>
+			<property name="content" column="content"></property>
+			<property name="sender" column="sender"></property>
+			<property name="send_delete" column="send_delete"></property>
+			<property name="send_status" column="send_status"></property>
+			<property name="save_time" column="save_time"></property>
+			<property name="send_time" column="send_time"></property>
+			<property name="send_update_time" column="send_update_time"></property>
+			<property name="receiver" column="receiver"></property>
+			<property name="receive_delete" column="receive_delete"></property>
+			<property name="receive_status" column="receive_status"></property>
+			<property name="receive_update_time" column="receive_update_time"></property>
+		</class>
+
+		
+	</hibernate-mapping>    

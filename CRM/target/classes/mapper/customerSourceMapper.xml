@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+	<hibernate-mapping>
+	
+		<class name="com.zhiyou100.model.CustomerSource" table="customer_source">
+			
+			<id name="customer_source_id" column="customer_source_id">
+				<generator class="native"/>
+			</id>
+			<property name="customer_source_name" column="customer_source_name"></property>
+			<property name="customer_source_desc" column="customer_source_desc"></property>
+			<property name="status" column="status"></property>
+			<property name="remark" column="remark"></property>
+			<property name="create_time" column="create_time"></property>
+			<property name="creater" column="creater"></property>
+			<property name="update_time" column="update_time"></property>
+			<property name="updater" column="updater"></property>
+		</class>
+
+		
+	</hibernate-mapping>    

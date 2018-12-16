@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+		<!-- 控制台显示sql语句 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 格式化sql -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 自动更新表结构 -->
+		<property name="hbm2ddl.auto">update</property>
+		<!-- 从上下文中获取session需要配置  -->
+		<!-- <property name="current_session_context_class">thread</property> -->
+		<property name="hibernate.use_identifier_rollback">true</property>		
+		
+	</session-factory>
+</hibernate-configuration>

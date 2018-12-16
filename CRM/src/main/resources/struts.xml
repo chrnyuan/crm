@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>	
+		<!-- 代表对象有sprin管理 -->
+		<constant name="struts.objectFactory" value="spring"></constant>
+		
+		<package name="UserPkG" extends="struts-default" >
+			<!-- 注册拦截器 -->
+		<interceptors>
+			<interceptor name="loginlow" class="com.zhiyou100.Interceptor.Interceptor">	
+				
+				<param name="n">userlogin</param>
+			</interceptor>
+			<interceptor-stack name="myintercepter">
+				<interceptor-ref name="loginlow"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<!-- 将默认的拦截器设置为我们自定义的 -->
+		<default-interceptor-ref name="myintercepter"/>
+		<!-- 配置全局结果视图-->
+		 <global-results>
+		 	<result name="login">/login.jsp</result>
+		 </global-results>
+		
+			<action name="userlogin" class="UserAction" method="userLogin">
+				<result >/WEB-INF/JSP/user.jsp</result>
+				<result name="error">/login.jsp</result>
+				<result name="input">/login.jsp</result>
+			</action>	
+			<action name="userSelect" class="UserAction" method="selectUser">
+				<result>/WEB-INF/JSP/userSelect.jsp</result>
+			</action >
+			<action name="likeSelectUser" class="UserAction" method="likeSelectUser">
+				<result>/WEB-INF/JSP/userLikeSelect.jsp</result>
+			</action>
+			<action name="skipInsertUser" class="UserAction" method="skipInsertUser">
+				<result>/WEB-INF/JSP/userInsert.jsp</result>
+			</action>
+			<action name="userinsert" class="UserAction" method="insertUser">
+				<result name="text_redirect" type="redirect">userSelect</result>
+			</action> 
+			<action name="skipUpdateUser" class="UserAction" method="skipUpdateUser">
+				<result>/WEB-INF/JSP/userUpdate.jsp</result>
+			</action> 
+			<action name="userupdate" class="UserAction" method="updateUser">
+				<result name="text_redirect" type="redirect">userSelect</result>
+			</action> 
+			<action name="userdelete" class="UserAction" method="deleteUser">
+				<result name="text_redirect" type="redirect">userSelect</result>
+			</action> 
+			<action name="userExit" class="UserAction" method="exitUser">
+				<result >/login.jsp</result>
+			</action>
+			
+			<action name="roleSelect" class="RoleAction" method="selectRole">
+				<result>/WEB-INF/JSP/roleManage.jsp</result>
+			</action>
+			<action name="skipInsertRole" class="RoleAction" method="skipInsertRole">
+				<result>/WEB-INF/JSP/roleInsert.jsp</result>
+			</action>
+			<action name="roleInsert" class="RoleAction" method="insertRole">
+				<result name="text_redirect" type="redirect">roleSelect</result>
+			
+			</action>
+			<action name="skipUpdateRole" class="RoleAction" method="skipUpdateRole">
+				<result>/WEB-INF/JSP/roleUpdate.jsp</result>
+			</action>
+			<action name="roleUpdate" class="RoleAction" method="updateRole">
+				<result name="text_redirect" type="redirect">roleSelect</result>
+			</action>
+			<action name="roledelete" class="RoleAction" method="deleteRole">
+				<result name="text_redirect" type="redirect">roleSelect</result>
+			</action>
+			
+			<action name="deptSelect" class="DepatmentAction">
+				<result>/WEB-INF/JSP/deptManage.jsp</result>
+			</action>
+			<action name="skipInsertDept" class="DepatmentAction" method="skipInsertDept">
+				<result>/WEB-INF/JSP/deptInsert.jsp</result>
+			</action>
+			<action name="deptInsert" class="DepatmentAction" method="insertDepatment">
+				<result name="text_redirect" type="redirect">deptSelect</result>
+			</action>
+			<action name="skipUpdateDepartment" class="DepatmentAction" method="skipUpdateDepartment"> 
+				<result>/WEB-INF/JSP/deptUpdate.jsp</result>
+			</action>
+			<action name="deptUpdate" class="DepatmentAction" method="updateDepatment">
+				<result name="text_redirect" type="redirect">deptSelect</result>
+			</action>
+			<action name="depetDelete" class="DepatmentAction" method="depetDelete">
+				<result name="text_redirect" type="redirect">deptSelect</result>
+			</action>
+			
+			<action name="noticeSelect" class="noticeAction" method="selectNotice">
+				<result>/WEB-INF/JSP/noticeManage.jsp</result>
+			</action>
+			<action name="skipInsertNotice" class="noticeAction" method="skipInsertNotice">
+				<result>/WEB-INF/JSP/noticeInsert.jsp</result>
+			</action>
+			<action name="noticeinsert" class="noticeAction" method="insertNotice">
+				<result name="text_redirect" type="redirect">noticeSelect</result>
+			</action>
+			<action name="skipUpdateNotice" class="noticeAction" method="skipUpdateNotice">
+				<result>/WEB-INF/JSP/noticeUpdate.jsp</result>
+			</action>
+			<action name="noticeupdate" class="noticeAction" method="updateNotice">
+				<result name="text_redirect" type="redirect">noticeSelect</result>
+			</action>
+			<action name="noticeDelete"  class="noticeAction" method="deleteNotice">
+				<result name="text_redirect" type="redirect">noticeSelect</result>
+			</action>
+			<action name="likeSelectNotice" class="noticeAction" method="likeSelectNotice">
+				<result>/WEB-INF/JSP/noticeLikeSelect.jsp</result>
+			</action>
+		</package>
+		<constant name="struts.action.excludePattern" value="/static/.*"></constant>
+</struts>
+

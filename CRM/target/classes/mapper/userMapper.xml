@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+	<hibernate-mapping>
+	
+		<class name="com.zhiyou100.model.User" >
+			
+			<id name="user_id" column="user_id">
+				<generator class="native"/>
+			</id>
+			<property name="dept" column="dept"></property>
+			<property name="role" column="role"></property>
+			
+			<property name="username" column="username"></property>
+			<property name="is_male" column="is_male"></property>
+			<property name="mobile" column="mobile"></property>
+			<property name="age" column="age"></property>
+			<property name="is_admin" column="is_admin"></property>
+			<property name="is_system" column="is_system"></property>
+			<property name="password" column="password"></property>
+			<property name="tel" column="tel"></property>
+			<property name="id_num" column="id_num"></property>
+			<property name="email" column="email"></property>
+			<property name="hobby" column="hobby"></property>
+			<property name="education" column="education"></property>
+			<property name="card_num" column="card_num"></property>
+			<property name="nation" column="nation"></property>
+			<property name="marry" column="marry"></property>
+			<property name="status" column="status"></property>
+			<property name="remark" column="remark"></property>
+			<property name="create_time" column="create_time"></property>
+			<property name="creater" column="creater"></property>
+			<property name="update_time" column="update_time"></property>
+			<property name="updater" column="updater"></property>
+			
+			<!-- <many-to-one name="dept" column="department_id"></many-to-one> 
+			<many-to-one name="role" column="role_id"></many-to-one>  -->
+		</class>
+
+		
+	</hibernate-mapping>    

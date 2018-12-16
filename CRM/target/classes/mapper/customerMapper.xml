@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+	<hibernate-mapping>
+	
+		<class name="com.zhiyou100.model.Customer" >
+			<id name="customer_id" column="customer_id">
+				<generator class="native"/>
+			</id>
+			<property name="customer_state_id" column="customer_state_id"></property>
+			<property name="customer_source_id" column="customer_source_id"></property>
+			<property name="user_id" column="user_id"></property>
+			<property name="customer_category_id" column="customer_category_id"></property>
+			<property name="customer_name" column="customer_name"></property>
+			<property name="customer_is_male" column="customer_is_male"></property>
+			<property name="customer_mobile" column="customer_mobile"></property>
+			<property name="customer_qq" column="customer_qq"></property>
+			<property name="customer_address" column="customer_address"></property>
+			<property name="customer_email" column="customer_email"></property>
+			<property name="customer_remark" column="customer_remark"></property>
+			<property name="customer_position" column="customer_position"></property>
+			<property name="customer_blog" column="customer_blog"></property>
+			<property name="customer_tel" column="customer_tel"></property>
+			<property name="customer_birth" column="customer_birth"></property>
+			<property name="customer_company" column="customer_company"></property>
+			<property name="status" column="status"></property>
+			<property name="remark" column="remark"></property>
+			<property name="create_time" column="create_time"></property>
+			<property name="creater" column="creater"></property>
+			<property name="update_time" column="update_time"></property>
+		</class>
+
+		
+	</hibernate-mapping>    

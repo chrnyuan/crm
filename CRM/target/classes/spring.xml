@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 1:配置扫描根目录 -->
+	<context:component-scan base-package="com.zhiyou100"></context:component-scan>
+	<!-- 2：导入属性文件 -->
+	<util:properties id="db" location="classpath:db.properties"/>
+	<!-- 3：配置数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="#{db.driver}"/>
+		<property name="url" value="#{db.url}"/>
+		<property name="username" value="#{db.username}"/>
+		<property name="password" value="#{db.password}"/>
+	</bean>
+	<!-- 4:配置工厂 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocations" value="classpath:hibernate.cfg.xml"/>
+		<property name="mappingLocations" value="classpath:mapper/*.xml"/>
+	</bean>
+	<!-- 5：配置hibernate事务管理器 -->
+	<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 解决Struts2 validation 错误信息重复不消失的问题 
+		scope="prototype" 会在该类型的对象被请求时创建一个新的action对象。
+		如果没有配置scope=prototype则添加的时候不会新建一个action，他任然会保留上次访问的过记录的信息。
+	-->
+	
+	<bean id="userAction" class="com.zhiyou100.Action.UserAction" scope="prototype"> </bean>
+
+</beans>

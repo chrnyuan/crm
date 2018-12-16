@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+	<hibernate-mapping>
+	
+		<class name="com.zhiyou100.model.Role" >
+			
+			<id name="role_id" column="role_id">
+				<generator class="native"/>
+			</id>
+			<property name="role_name" column="role_name"></property>
+			<property name="role_permission" column="role_permission"></property>
+			<property name="status" column="status"></property>
+			<property name="remark" column="remark"></property>
+			<property name="create_time" column="create_time"></property>
+			<property name="creater" column="creater"></property>
+			<property name="update_time" column="update_time"></property>
+			<property name="role_update" column="role_update"></property>
+		
+		</class>
+
+		
+	</hibernate-mapping>    
